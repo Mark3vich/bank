@@ -34,17 +34,21 @@ public class AuthenticationService {
     private final AuthenticationManager authenticationManager;
 
     private final TokenRepository tokenRepository;
+    
+    private final InterestService interestService;
 
     public AuthenticationService(UserRepository userRepository,
             JwtService jwtService,
             PasswordEncoder passwordEncoder,
             AuthenticationManager authenticationManager,
-            TokenRepository tokenRepository) {
+            TokenRepository tokenRepository,
+            InterestService interestService) {
         this.userRepository = userRepository;
         this.jwtService = jwtService;
         this.passwordEncoder = passwordEncoder;
         this.authenticationManager = authenticationManager;
         this.tokenRepository = tokenRepository;
+        this.interestService = interestService;
     }
 
     @Transactional
@@ -83,6 +87,11 @@ public class AuthenticationService {
         // Сохраняем пользователя со всеми связями одной операцией
         // Благодаря настройке CascadeType.ALL, все связанные сущности будут сохранены автоматически
         User savedUser = userRepository.save(user);
+        
+        // Записываем начальный депозит, если есть аккаунт
+        if (savedUser.getAccount() != null) {
+            interestService.recordInitialDeposit(savedUser.getAccount());
+        }
         
         // Генерируем токены
         String accessToken = jwtService.generateAccessToken(savedUser);

@@ -6,6 +6,8 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +24,10 @@ import com.example.bank.model.Account;
 import com.example.bank.model.EmailData;
 import com.example.bank.model.PhoneData;
 import com.example.bank.model.User;
+import com.example.bank.repository.AccountRepository;
 import com.example.bank.repository.UserRepository;
 import com.example.bank.service.AuthenticationService;
+import com.example.bank.service.InterestService;
 
 @DataJpaTest
 @ContextConfiguration(classes = TestConfig.class)
@@ -37,6 +41,12 @@ public class CreateUserIntegrationTest {
 
     @Autowired
     private AuthenticationService authenticationService;
+    
+    @Autowired
+    private AccountRepository accountRepository;
+    
+    @Autowired
+    private InterestService interestService;
     
     @BeforeEach
     public void setUp() {
@@ -139,6 +149,63 @@ public class CreateUserIntegrationTest {
         assertNotNull(response.getAccessToken());
         assertNotNull(response.getRefreshToken());
     }
+    
+    @Test
+    @Rollback(false)
+    public void testInterestCalculation() {
+        // Create a user with an account and initial balance of 100
+        User user = new User();
+        user.setName("Interest Test User");
+        user.setPassword("password");
+        
+        Account account = new Account();
+        account.setBalance(new BigDecimal("100.00"));
+        account.setUser(user);
+        user.setAccount(account);
+        
+        EmailData email = new EmailData();
+        email.setEmail("interest@example.com");
+        email.setUser(user);
+        user.getEmails().add(email);
+        
+        // Save the user and verify initial balance
+        User savedUser = userRepository.save(user);
+        Account savedAccount = savedUser.getAccount();
+        
+        // Manually record the initial deposit
+        interestService.recordInitialDeposit(savedAccount);
+        
+        // Verify the initial deposit was recorded
+        assertEquals(new BigDecimal("100.00"), savedAccount.getInitialDeposit());
+        
+        // Apply interest once (should be 100 + 10% = 110)
+        interestService.applyInterest(savedAccount);
+        
+        // Refresh the account from the database
+        Account accountAfterFirstInterest = accountRepository.findById(savedAccount.getId()).orElseThrow();
+        assertEquals(new BigDecimal("110.00"), accountAfterFirstInterest.getBalance());
+        
+        // Apply interest again (should be 110 + 11 = 121)
+        interestService.applyInterest(accountAfterFirstInterest);
+        
+        // Refresh the account from the database
+        Account accountAfterSecondInterest = accountRepository.findById(savedAccount.getId()).orElseThrow();
+        assertEquals(new BigDecimal("121.00"), accountAfterSecondInterest.getBalance());
+        
+        // Calculate maximum allowed balance (207% of initial)
+        BigDecimal maxAllowedBalance = interestService.getMaximumAllowedBalance(savedAccount.getInitialDeposit());
+        assertEquals(new BigDecimal("207.00"), maxAllowedBalance);
+        
+        // Apply interest several more times until we reach the cap
+        for (int i = 0; i < 10; i++) {
+            interestService.applyInterest(accountAfterSecondInterest);
+            accountAfterSecondInterest = accountRepository.findById(savedAccount.getId()).orElseThrow();
+        }
+        
+        // Verify the balance doesn't exceed the 207% cap
+        assertTrue(accountAfterSecondInterest.getBalance().compareTo(maxAllowedBalance) <= 0);
+        assertEquals(maxAllowedBalance, accountAfterSecondInterest.getBalance());
+    }
 
     @Test
     @Rollback(false)
@@ -188,6 +255,11 @@ public class CreateUserIntegrationTest {
         savedUser.setAccount(account);
         
         // Сохраняем обновленного пользователя
-        return userRepository.save(savedUser);
+        User userWithAccount = userRepository.save(savedUser);
+        
+        // Записываем начальный депозит
+        interestService.recordInitialDeposit(userWithAccount.getAccount());
+        
+        return userWithAccount;
     }
 }
