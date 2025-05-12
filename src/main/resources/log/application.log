@@ -1,0 +1,423 @@
+2025-05-13T00:01:17.524+03:00 DEBUG 15212 --- [http-nio-8081-exec-3] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/user/emails
+2025-05-13T00:01:17.528+03:00 DEBUG 15212 --- [http-nio-8081-exec-3] com.example.bank.filter.JwtFilter        : Validating token for path: /api/v1/user/emails
+2025-05-13T00:01:17.530+03:00 DEBUG 15212 --- [http-nio-8081-exec-3] com.example.bank.filter.JwtFilter        : Extracted identifier from token: permanent@example.com
+2025-05-13T00:01:17.535+03:00 DEBUG 15212 --- [http-nio-8081-exec-3] com.example.bank.filter.JwtFilter        : Loaded UserDetails for identifier: permanent@example.com
+2025-05-13T00:01:17.548+03:00 DEBUG 15212 --- [http-nio-8081-exec-3] com.example.bank.filter.JwtFilter        : Token is valid, setting authentication context
+2025-05-13T00:01:17.549+03:00 DEBUG 15212 --- [http-nio-8081-exec-3] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/user/emails
+2025-05-13T00:01:26.122+03:00  INFO 14708 --- [main] com.example.bank.BankApplication         : Starting BankApplication using Java 23.0.1 with PID 14708 (C:\Users\Александр\Documents\bank\target\classes started by Александр in C:\Users\Александр\Documents\bank)
+2025-05-13T00:01:26.124+03:00  INFO 14708 --- [main] com.example.bank.BankApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-05-13T00:01:27.093+03:00  INFO 14708 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-13T00:01:27.097+03:00  INFO 14708 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2025-05-13T00:01:27.144+03:00  INFO 14708 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.bank.repository.EmailRepository; If you want this repository to be a Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ElasticsearchRepository
+2025-05-13T00:01:27.146+03:00  INFO 14708 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.bank.repository.PhoneRepository; If you want this repository to be a Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ElasticsearchRepository
+2025-05-13T00:01:27.147+03:00  INFO 14708 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.bank.repository.TokenRepository; If you want this repository to be a Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ElasticsearchRepository
+2025-05-13T00:01:27.148+03:00  INFO 14708 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.bank.repository.UserRepository; If you want this repository to be a Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ElasticsearchRepository
+2025-05-13T00:01:27.149+03:00  INFO 14708 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 45 ms. Found 0 Elasticsearch repository interfaces.
+2025-05-13T00:01:27.156+03:00  INFO 14708 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-13T00:01:27.156+03:00  INFO 14708 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2025-05-13T00:01:27.162+03:00  INFO 14708 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.bank.repository.EmailRepository; If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository
+2025-05-13T00:01:27.162+03:00  INFO 14708 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.bank.repository.PhoneRepository; If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository
+2025-05-13T00:01:27.163+03:00  INFO 14708 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.bank.repository.TokenRepository; If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository
+2025-05-13T00:01:27.163+03:00  INFO 14708 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.bank.repository.UserRepository; If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository
+2025-05-13T00:01:27.163+03:00  INFO 14708 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2025-05-13T00:01:27.172+03:00  INFO 14708 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-13T00:01:27.173+03:00  INFO 14708 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-13T00:01:27.268+03:00  INFO 14708 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 90 ms. Found 4 JPA repository interfaces.
+2025-05-13T00:01:27.281+03:00  INFO 14708 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-13T00:01:27.282+03:00  INFO 14708 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-05-13T00:01:27.294+03:00  INFO 14708 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.bank.repository.EmailRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-05-13T00:01:27.294+03:00  INFO 14708 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.bank.repository.PhoneRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-05-13T00:01:27.294+03:00  INFO 14708 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.bank.repository.TokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-05-13T00:01:27.295+03:00  INFO 14708 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.bank.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-05-13T00:01:27.295+03:00  INFO 14708 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2025-05-13T00:01:27.933+03:00  INFO 14708 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-05-13T00:01:27.960+03:00  INFO 14708 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-13T00:01:27.961+03:00  INFO 14708 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-05-13T00:01:28.057+03:00  INFO 14708 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-13T00:01:28.059+03:00  INFO 14708 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1886 ms
+2025-05-13T00:01:28.223+03:00  INFO 14708 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-13T00:01:28.281+03:00  INFO 14708 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-13T00:01:28.319+03:00  INFO 14708 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-13T00:01:28.587+03:00  INFO 14708 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-13T00:01:28.613+03:00  INFO 14708 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-13T00:01:28.754+03:00  INFO 14708 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@13137835
+2025-05-13T00:01:28.756+03:00  INFO 14708 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-13T00:01:28.780+03:00  WARN 14708 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-13T00:01:28.803+03:00  INFO 14708 --- [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 16.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-13T00:01:29.500+03:00  INFO 14708 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-13T00:01:29.727+03:00  INFO 14708 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-13T00:01:29.923+03:00  INFO 14708 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-13T00:01:30.682+03:00 DEBUG 14708 --- [main] com.example.bank.filter.JwtFilter        : Filter 'jwtFilter' configured for use
+2025-05-13T00:01:30.768+03:00  INFO 14708 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userServiceImpl
+2025-05-13T00:01:31.350+03:00  WARN 14708 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-13T00:01:31.720+03:00 DEBUG 14708 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2025-05-13T00:01:31.783+03:00  INFO 14708 --- [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-05-13T00:01:32.552+03:00  INFO 14708 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-05-13T00:01:32.559+03:00  INFO 14708 --- [main] com.example.bank.BankApplication         : Started BankApplication in 6.873 seconds (process running for 7.202)
+2025-05-13T00:01:36.109+03:00  INFO 14708 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-13T00:01:36.109+03:00  INFO 14708 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-05-13T00:01:36.110+03:00  INFO 14708 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-05-13T00:01:36.126+03:00 DEBUG 14708 --- [http-nio-8081-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/user/emails
+2025-05-13T00:01:36.129+03:00 DEBUG 14708 --- [http-nio-8081-exec-1] com.example.bank.filter.JwtFilter        : Validating token for path: /api/v1/user/emails
+2025-05-13T00:01:36.200+03:00 DEBUG 14708 --- [http-nio-8081-exec-1] com.example.bank.filter.JwtFilter        : Extracted identifier from token: permanent@example.com
+2025-05-13T00:01:36.287+03:00 DEBUG 14708 --- [http-nio-8081-exec-1] com.example.bank.filter.JwtFilter        : Loaded UserDetails for identifier: permanent@example.com
+2025-05-13T00:01:36.438+03:00 DEBUG 14708 --- [http-nio-8081-exec-1] com.example.bank.filter.JwtFilter        : Token is valid, setting authentication context
+2025-05-13T00:01:36.441+03:00 DEBUG 14708 --- [http-nio-8081-exec-1] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/user/emails
+2025-05-13T00:01:52.595+03:00 DEBUG 14708 --- [http-nio-8081-exec-2] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/login
+2025-05-13T00:01:52.596+03:00 DEBUG 14708 --- [http-nio-8081-exec-2] com.example.bank.filter.JwtFilter        : Validating token for path: /api/v1/auth/login
+2025-05-13T00:01:52.599+03:00 DEBUG 14708 --- [http-nio-8081-exec-2] com.example.bank.filter.JwtFilter        : Extracted identifier from token: permanent@example.com
+2025-05-13T00:01:52.604+03:00 DEBUG 14708 --- [http-nio-8081-exec-2] com.example.bank.filter.JwtFilter        : Loaded UserDetails for identifier: permanent@example.com
+2025-05-13T00:01:52.615+03:00 DEBUG 14708 --- [http-nio-8081-exec-2] com.example.bank.filter.JwtFilter        : Token is valid, setting authentication context
+2025-05-13T00:01:52.617+03:00 DEBUG 14708 --- [http-nio-8081-exec-2] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/login
+2025-05-13T00:01:52.739+03:00 DEBUG 14708 --- [http-nio-8081-exec-2] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2025-05-13T00:02:06.419+03:00 DEBUG 14708 --- [http-nio-8081-exec-3] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/user/emails
+2025-05-13T00:02:06.419+03:00 DEBUG 14708 --- [http-nio-8081-exec-3] com.example.bank.filter.JwtFilter        : Validating token for path: /api/v1/user/emails
+2025-05-13T00:02:06.420+03:00 DEBUG 14708 --- [http-nio-8081-exec-3] com.example.bank.filter.JwtFilter        : Extracted identifier from token: permanent@example.com
+2025-05-13T00:02:06.426+03:00 DEBUG 14708 --- [http-nio-8081-exec-3] com.example.bank.filter.JwtFilter        : Loaded UserDetails for identifier: permanent@example.com
+2025-05-13T00:02:06.439+03:00 DEBUG 14708 --- [http-nio-8081-exec-3] com.example.bank.filter.JwtFilter        : Token is valid, setting authentication context
+2025-05-13T00:02:06.440+03:00 DEBUG 14708 --- [http-nio-8081-exec-3] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/user/emails
+2025-05-13T00:21:51.578+03:00  INFO 22032 --- [main] com.example.bank.BankApplication         : Starting BankApplication using Java 23.0.1 with PID 22032 (C:\Users\Александр\Documents\bank\target\classes started by Александр in C:\Users\Александр\Documents\bank)
+2025-05-13T00:21:51.580+03:00  INFO 22032 --- [main] com.example.bank.BankApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-05-13T00:21:52.516+03:00  INFO 22032 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-13T00:21:52.518+03:00  INFO 22032 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+2025-05-13T00:21:52.552+03:00  INFO 22032 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.bank.repository.EmailRepository; If you want this repository to be a Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ElasticsearchRepository
+2025-05-13T00:21:52.554+03:00  INFO 22032 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.bank.repository.PhoneRepository; If you want this repository to be a Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ElasticsearchRepository
+2025-05-13T00:21:52.556+03:00  INFO 22032 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.bank.repository.TokenRepository; If you want this repository to be a Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ElasticsearchRepository
+2025-05-13T00:21:52.557+03:00  INFO 22032 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.bank.repository.UserRepository; If you want this repository to be a Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ElasticsearchRepository
+2025-05-13T00:21:52.559+03:00  INFO 22032 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 33 ms. Found 0 Elasticsearch repository interfaces.
+2025-05-13T00:21:52.566+03:00  INFO 22032 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-13T00:21:52.567+03:00  INFO 22032 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+2025-05-13T00:21:52.573+03:00  INFO 22032 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.bank.repository.EmailRepository; If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository
+2025-05-13T00:21:52.573+03:00  INFO 22032 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.bank.repository.PhoneRepository; If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository
+2025-05-13T00:21:52.574+03:00  INFO 22032 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.bank.repository.TokenRepository; If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository
+2025-05-13T00:21:52.574+03:00  INFO 22032 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.example.bank.repository.UserRepository; If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository
+2025-05-13T00:21:52.574+03:00  INFO 22032 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 Reactive Elasticsearch repository interfaces.
+2025-05-13T00:21:52.581+03:00  INFO 22032 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-13T00:21:52.582+03:00  INFO 22032 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-13T00:21:52.677+03:00  INFO 22032 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 91 ms. Found 4 JPA repository interfaces.
+2025-05-13T00:21:52.691+03:00  INFO 22032 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2025-05-13T00:21:52.692+03:00  INFO 22032 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2025-05-13T00:21:52.704+03:00  INFO 22032 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.bank.repository.EmailRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-05-13T00:21:52.704+03:00  INFO 22032 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.bank.repository.PhoneRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-05-13T00:21:52.705+03:00  INFO 22032 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.bank.repository.TokenRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-05-13T00:21:52.705+03:00  INFO 22032 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.bank.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2025-05-13T00:21:52.705+03:00  INFO 22032 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2025-05-13T00:21:53.308+03:00  INFO 22032 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-05-13T00:21:53.323+03:00  INFO 22032 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-05-13T00:21:53.324+03:00  INFO 22032 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-05-13T00:21:53.387+03:00  INFO 22032 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-05-13T00:21:53.387+03:00  INFO 22032 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1755 ms
+2025-05-13T00:21:53.560+03:00  INFO 22032 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-13T00:21:53.619+03:00  INFO 22032 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-13T00:21:53.653+03:00  INFO 22032 --- [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-05-13T00:21:53.900+03:00  INFO 22032 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-13T00:21:53.920+03:00  INFO 22032 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-05-13T00:21:54.059+03:00  INFO 22032 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7d49a1a0
+2025-05-13T00:21:54.060+03:00  INFO 22032 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-05-13T00:21:54.088+03:00  WARN 22032 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-13T00:21:54.106+03:00  INFO 22032 --- [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 16.4
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-13T00:21:54.834+03:00  INFO 22032 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-13T00:21:55.107+03:00  INFO 22032 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-13T00:21:55.328+03:00  INFO 22032 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-05-13T00:21:56.102+03:00 DEBUG 22032 --- [main] com.example.bank.filter.JwtFilter        : Filter 'jwtFilter' configured for use
+2025-05-13T00:21:56.178+03:00  INFO 22032 --- [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userServiceImpl
+2025-05-13T00:21:56.604+03:00  WARN 22032 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-13T00:21:56.941+03:00 DEBUG 22032 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with filters: DisableEncodeUrlFilter, WebAsyncManagerIntegrationFilter, SecurityContextHolderFilter, HeaderWriterFilter, LogoutFilter, JwtFilter, RequestCacheAwareFilter, SecurityContextHolderAwareRequestFilter, AnonymousAuthenticationFilter, SessionManagementFilter, ExceptionTranslationFilter, AuthorizationFilter
+2025-05-13T00:21:56.993+03:00  INFO 22032 --- [main] o.s.v.b.OptionalValidatorFactoryBean     : Failed to set up a Bean Validation provider: jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+2025-05-13T00:21:57.805+03:00  INFO 22032 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-05-13T00:21:57.820+03:00  INFO 22032 --- [main] com.example.bank.BankApplication         : Started BankApplication in 6.656 seconds (process running for 7.177)
+2025-05-13T00:22:01.165+03:00  INFO 22032 --- [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-05-13T00:22:01.166+03:00  INFO 22032 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-05-13T00:22:01.167+03:00  INFO 22032 --- [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-05-13T00:22:01.179+03:00 DEBUG 22032 --- [http-nio-8081-exec-1] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/user/emails
+2025-05-13T00:22:01.183+03:00 DEBUG 22032 --- [http-nio-8081-exec-1] com.example.bank.filter.JwtFilter        : Validating token for path: /api/v1/user/emails
+2025-05-13T00:22:01.261+03:00 DEBUG 22032 --- [http-nio-8081-exec-1] com.example.bank.filter.JwtFilter        : Extracted identifier from token: permanent@example.com
+2025-05-13T00:22:01.352+03:00 DEBUG 22032 --- [http-nio-8081-exec-1] com.example.bank.filter.JwtFilter        : Loaded UserDetails for identifier: permanent@example.com
+2025-05-13T00:22:01.396+03:00 DEBUG 22032 --- [http-nio-8081-exec-1] com.example.bank.filter.JwtFilter        : Token is valid, setting authentication context
+2025-05-13T00:22:01.400+03:00 DEBUG 22032 --- [http-nio-8081-exec-1] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/user/emails
+2025-05-13T00:23:00.645+03:00 DEBUG 22032 --- [http-nio-8081-exec-2] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/login
+2025-05-13T00:23:00.646+03:00 DEBUG 22032 --- [http-nio-8081-exec-2] com.example.bank.filter.JwtFilter        : Validating token for path: /api/v1/auth/login
+2025-05-13T00:23:00.647+03:00 DEBUG 22032 --- [http-nio-8081-exec-2] com.example.bank.filter.JwtFilter        : Extracted identifier from token: permanent@example.com
+2025-05-13T00:23:00.652+03:00 DEBUG 22032 --- [http-nio-8081-exec-2] com.example.bank.filter.JwtFilter        : Loaded UserDetails for identifier: permanent@example.com
+2025-05-13T00:23:00.664+03:00 DEBUG 22032 --- [http-nio-8081-exec-2] com.example.bank.filter.JwtFilter        : Token is valid, setting authentication context
+2025-05-13T00:23:00.665+03:00 DEBUG 22032 --- [http-nio-8081-exec-2] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/login
+2025-05-13T00:23:00.864+03:00 DEBUG 22032 --- [http-nio-8081-exec-2] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2025-05-13T00:23:06.607+03:00 DEBUG 22032 --- [http-nio-8081-exec-3] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/login
+2025-05-13T00:23:06.608+03:00 DEBUG 22032 --- [http-nio-8081-exec-3] com.example.bank.filter.JwtFilter        : Validating token for path: /api/v1/auth/login
+2025-05-13T00:23:06.609+03:00 DEBUG 22032 --- [http-nio-8081-exec-3] com.example.bank.filter.JwtFilter        : Extracted identifier from token: permanent@example.com
+2025-05-13T00:23:06.614+03:00 DEBUG 22032 --- [http-nio-8081-exec-3] com.example.bank.filter.JwtFilter        : Loaded UserDetails for identifier: permanent@example.com
+2025-05-13T00:23:06.628+03:00 DEBUG 22032 --- [http-nio-8081-exec-3] com.example.bank.filter.JwtFilter        : Token validation failed for identifier: permanent@example.com
+2025-05-13T00:23:06.629+03:00 DEBUG 22032 --- [http-nio-8081-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-13T00:23:06.629+03:00 DEBUG 22032 --- [http-nio-8081-exec-3] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/login
+2025-05-13T00:23:06.719+03:00 DEBUG 22032 --- [http-nio-8081-exec-3] o.s.s.a.dao.DaoAuthenticationProvider    : Failed to find user 'perman23ent@example.com'
+2025-05-13T00:23:06.729+03:00 ERROR 22032 --- [http-nio-8081-exec-3] c.e.b.c.AuthenticationController         : Authentication failed: Неверные учетные данные пользователя
+
+org.springframework.security.authentication.BadCredentialsException: Неверные учетные данные пользователя
+	at org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider.authenticate(AbstractUserDetailsAuthenticationProvider.java:141) ~[spring-security-core-6.4.5.jar:6.4.5]
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:182) ~[spring-security-core-6.4.5.jar:6.4.5]
+	at com.example.bank.service.AuthenticationService.authenticate(AuthenticationService.java:130) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359) ~[spring-aop-6.2.6.jar:6.2.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.2.6.jar:6.2.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.2.6.jar:6.2.6]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380) ~[spring-tx-6.2.6.jar:6.2.6]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.2.6.jar:6.2.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.6.jar:6.2.6]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728) ~[spring-aop-6.2.6.jar:6.2.6]
+	at com.example.bank.service.AuthenticationService$$SpringCGLIB$$0.authenticate(<generated>) ~[classes/:na]
+	at com.example.bank.controller.AuthenticationController.authenticate(AuthenticationController.java:40) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258) ~[spring-web-6.2.6.jar:6.2.6]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191) ~[spring-web-6.2.6.jar:6.2.6]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.2.6.jar:6.2.6]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:986) ~[spring-webmvc-6.2.6.jar:6.2.6]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:891) ~[spring-webmvc-6.2.6.jar:6.2.6]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.2.6.jar:6.2.6]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.2.6.jar:6.2.6]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.2.6.jar:6.2.6]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.6.jar:6.2.6]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.2.6.jar:6.2.6]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.40.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.6.jar:6.2.6]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.40.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.40.jar:10.1.40]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110) ~[spring-web-6.2.6.jar:6.2.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-6.2.6.jar:6.2.6]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.4.5.jar:6.4.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365) ~[spring-security-web-6.4.5.jar:6.4.5]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101) ~[spring-security-web-6.4.5.jar:6.4.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.5.jar:6.4.5]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-6.4.5.jar:6.4.5]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-6.4.5.jar:6.4.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.5.jar:6.4.5]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) ~[spring-security-web-6.4.5.jar:6.4.5]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) ~[spring-security-web-6.4.5.jar:6.4.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.5.jar:6.4.5]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.4.5.jar:6.4.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.5.jar:6.4.5]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.4.5.jar:6.4.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.5.jar:6.4.5]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.4.5.jar:6.4.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.5.jar:6.4.5]
+	at com.example.bank.filter.JwtFilter.doFilterInternal(JwtFilter.java:80) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.6.jar:6.2.6]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.5.jar:6.4.5]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.4.5.jar:6.4.5]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.4.5.jar:6.4.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.5.jar:6.4.5]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.4.5.jar:6.4.5]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.4.5.jar:6.4.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.6.jar:6.2.6]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.5.jar:6.4.5]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.4.5.jar:6.4.5]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.4.5.jar:6.4.5]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.5.jar:6.4.5]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.4.5.jar:6.4.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.6.jar:6.2.6]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.5.jar:6.4.5]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.4.5.jar:6.4.5]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.6.jar:6.2.6]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.4.5.jar:6.4.5]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.4.5.jar:6.4.5]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.4.5.jar:6.4.5]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.6.jar:6.2.6]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$3(HandlerMappingIntrospector.java:243) ~[spring-webmvc-6.2.6.jar:6.2.6]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.6.jar:6.2.6]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.2.6.jar:6.2.6]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:238) ~[spring-security-config-6.4.5.jar:6.4.5]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362) ~[spring-web-6.2.6.jar:6.2.6]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278) ~[spring-web-6.2.6.jar:6.2.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.6.jar:6.2.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.6.jar:6.2.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.6.jar:6.2.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.6.jar:6.2.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.6.jar:6.2.6]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.6.jar:6.2.6]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.40.jar:10.1.40]
+	at java.base/java.lang.Thread.run(Thread.java:1575) ~[na:na]
+
+2025-05-13T00:23:13.177+03:00 DEBUG 22032 --- [http-nio-8081-exec-4] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/login
+2025-05-13T00:23:13.178+03:00 DEBUG 22032 --- [http-nio-8081-exec-4] com.example.bank.filter.JwtFilter        : Validating token for path: /api/v1/auth/login
+2025-05-13T00:23:13.179+03:00 DEBUG 22032 --- [http-nio-8081-exec-4] com.example.bank.filter.JwtFilter        : Extracted identifier from token: permanent@example.com
+2025-05-13T00:23:13.183+03:00 DEBUG 22032 --- [http-nio-8081-exec-4] com.example.bank.filter.JwtFilter        : Loaded UserDetails for identifier: permanent@example.com
+2025-05-13T00:23:13.197+03:00 DEBUG 22032 --- [http-nio-8081-exec-4] com.example.bank.filter.JwtFilter        : Token validation failed for identifier: permanent@example.com
+2025-05-13T00:23:13.197+03:00 DEBUG 22032 --- [http-nio-8081-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-13T00:23:13.197+03:00 DEBUG 22032 --- [http-nio-8081-exec-4] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/login
+2025-05-13T00:23:13.287+03:00 DEBUG 22032 --- [http-nio-8081-exec-4] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2025-05-13T00:23:28.514+03:00 DEBUG 22032 --- [http-nio-8081-exec-6] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/refresh_token
+2025-05-13T00:23:28.514+03:00 DEBUG 22032 --- [http-nio-8081-exec-6] com.example.bank.filter.JwtFilter        : Validating token for path: /api/v1/auth/refresh_token
+2025-05-13T00:23:28.515+03:00 DEBUG 22032 --- [http-nio-8081-exec-6] com.example.bank.filter.JwtFilter        : Extracted identifier from token: permanent@example.com
+2025-05-13T00:23:28.520+03:00 DEBUG 22032 --- [http-nio-8081-exec-6] com.example.bank.filter.JwtFilter        : Loaded UserDetails for identifier: permanent@example.com
+2025-05-13T00:23:28.534+03:00 DEBUG 22032 --- [http-nio-8081-exec-6] com.example.bank.filter.JwtFilter        : Token validation failed for identifier: permanent@example.com
+2025-05-13T00:23:28.534+03:00 DEBUG 22032 --- [http-nio-8081-exec-6] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-13T00:23:28.534+03:00 DEBUG 22032 --- [http-nio-8081-exec-6] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/refresh_token
+2025-05-13T00:30:55.867+03:00 DEBUG 22032 --- [http-nio-8081-exec-10] o.s.security.web.FilterChainProxy        : Securing GET /swagger-ui/index.html
+2025-05-13T00:30:55.868+03:00 DEBUG 22032 --- [http-nio-8081-exec-10] com.example.bank.filter.JwtFilter        : No Authorization header or not a Bearer token - skipping JWT validation
+2025-05-13T00:30:55.868+03:00 DEBUG 22032 --- [http-nio-8081-exec-10] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-13T00:30:55.868+03:00 DEBUG 22032 --- [http-nio-8081-exec-10] o.s.security.web.FilterChainProxy        : Secured GET /swagger-ui/index.html
+2025-05-13T00:30:55.908+03:00 DEBUG 22032 --- [http-nio-8081-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /swagger-ui/swagger-ui.css
+2025-05-13T00:30:55.908+03:00 DEBUG 22032 --- [http-nio-8081-exec-9] com.example.bank.filter.JwtFilter        : No Authorization header or not a Bearer token - skipping JWT validation
+2025-05-13T00:30:55.909+03:00 DEBUG 22032 --- [http-nio-8081-exec-9] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-13T00:30:55.909+03:00 DEBUG 22032 --- [http-nio-8081-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /swagger-ui/swagger-ui.css
+2025-05-13T00:30:55.909+03:00 DEBUG 22032 --- [http-nio-8081-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /swagger-ui/swagger-ui-bundle.js
+2025-05-13T00:30:55.909+03:00 DEBUG 22032 --- [http-nio-8081-exec-3] o.s.security.web.FilterChainProxy        : Securing GET /swagger-ui/swagger-initializer.js
+2025-05-13T00:30:55.909+03:00 DEBUG 22032 --- [http-nio-8081-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /swagger-ui/swagger-ui-standalone-preset.js
+2025-05-13T00:30:55.909+03:00 DEBUG 22032 --- [http-nio-8081-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /swagger-ui/index.css
+2025-05-13T00:30:55.909+03:00 DEBUG 22032 --- [http-nio-8081-exec-3] com.example.bank.filter.JwtFilter        : No Authorization header or not a Bearer token - skipping JWT validation
+2025-05-13T00:30:55.909+03:00 DEBUG 22032 --- [http-nio-8081-exec-1] com.example.bank.filter.JwtFilter        : No Authorization header or not a Bearer token - skipping JWT validation
+2025-05-13T00:30:55.909+03:00 DEBUG 22032 --- [http-nio-8081-exec-2] com.example.bank.filter.JwtFilter        : No Authorization header or not a Bearer token - skipping JWT validation
+2025-05-13T00:30:55.909+03:00 DEBUG 22032 --- [http-nio-8081-exec-1] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-13T00:30:55.909+03:00 DEBUG 22032 --- [http-nio-8081-exec-2] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-13T00:30:55.909+03:00 DEBUG 22032 --- [http-nio-8081-exec-8] com.example.bank.filter.JwtFilter        : No Authorization header or not a Bearer token - skipping JWT validation
+2025-05-13T00:30:55.909+03:00 DEBUG 22032 --- [http-nio-8081-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-13T00:30:55.911+03:00 DEBUG 22032 --- [http-nio-8081-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /swagger-ui/swagger-ui-standalone-preset.js
+2025-05-13T00:30:55.911+03:00 DEBUG 22032 --- [http-nio-8081-exec-8] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-13T00:30:55.911+03:00 DEBUG 22032 --- [http-nio-8081-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /swagger-ui/swagger-ui-bundle.js
+2025-05-13T00:30:55.911+03:00 DEBUG 22032 --- [http-nio-8081-exec-3] o.s.security.web.FilterChainProxy        : Secured GET /swagger-ui/swagger-initializer.js
+2025-05-13T00:30:55.911+03:00 DEBUG 22032 --- [http-nio-8081-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /swagger-ui/index.css
+2025-05-13T00:30:56.154+03:00 DEBUG 22032 --- [http-nio-8081-exec-4] o.s.security.web.FilterChainProxy        : Securing GET /v3/api-docs/swagger-config
+2025-05-13T00:30:56.155+03:00 DEBUG 22032 --- [http-nio-8081-exec-5] o.s.security.web.FilterChainProxy        : Securing GET /swagger-ui/favicon-32x32.png
+2025-05-13T00:30:56.156+03:00 DEBUG 22032 --- [http-nio-8081-exec-4] com.example.bank.filter.JwtFilter        : No Authorization header or not a Bearer token - skipping JWT validation
+2025-05-13T00:30:56.156+03:00 DEBUG 22032 --- [http-nio-8081-exec-5] com.example.bank.filter.JwtFilter        : No Authorization header or not a Bearer token - skipping JWT validation
+2025-05-13T00:30:56.156+03:00 DEBUG 22032 --- [http-nio-8081-exec-4] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-13T00:30:56.156+03:00 DEBUG 22032 --- [http-nio-8081-exec-5] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-13T00:30:56.156+03:00 DEBUG 22032 --- [http-nio-8081-exec-4] o.s.security.web.FilterChainProxy        : Secured GET /v3/api-docs/swagger-config
+2025-05-13T00:30:56.156+03:00 DEBUG 22032 --- [http-nio-8081-exec-5] o.s.security.web.FilterChainProxy        : Secured GET /swagger-ui/favicon-32x32.png
+2025-05-13T00:30:56.168+03:00 DEBUG 22032 --- [http-nio-8081-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /v3/api-docs
+2025-05-13T00:30:56.168+03:00 DEBUG 22032 --- [http-nio-8081-exec-6] com.example.bank.filter.JwtFilter        : No Authorization header or not a Bearer token - skipping JWT validation
+2025-05-13T00:30:56.168+03:00 DEBUG 22032 --- [http-nio-8081-exec-6] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-13T00:30:56.168+03:00 DEBUG 22032 --- [http-nio-8081-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /v3/api-docs
+2025-05-13T00:30:56.497+03:00  INFO 22032 --- [http-nio-8081-exec-6] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 320 ms
+2025-05-13T00:34:38.874+03:00 DEBUG 22032 --- [http-nio-8081-exec-3] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/auth/login
+2025-05-13T00:34:38.874+03:00 DEBUG 22032 --- [http-nio-8081-exec-3] com.example.bank.filter.JwtFilter        : No Authorization header or not a Bearer token - skipping JWT validation
+2025-05-13T00:34:38.874+03:00 DEBUG 22032 --- [http-nio-8081-exec-3] o.s.s.w.a.AnonymousAuthenticationFilter  : Set SecurityContextHolder to anonymous SecurityContext
+2025-05-13T00:34:38.875+03:00 DEBUG 22032 --- [http-nio-8081-exec-3] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/auth/login
+2025-05-13T00:34:38.967+03:00 DEBUG 22032 --- [http-nio-8081-exec-3] o.s.s.a.dao.DaoAuthenticationProvider    : Authenticated user
+2025-05-13T00:34:52.617+03:00 DEBUG 22032 --- [http-nio-8081-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/user/me
+2025-05-13T00:34:52.617+03:00 DEBUG 22032 --- [http-nio-8081-exec-1] com.example.bank.filter.JwtFilter        : Validating token for path: /api/v1/user/me
+2025-05-13T00:34:52.618+03:00 DEBUG 22032 --- [http-nio-8081-exec-1] com.example.bank.filter.JwtFilter        : Extracted identifier from token: permanent@example.com
+2025-05-13T00:34:52.623+03:00 DEBUG 22032 --- [http-nio-8081-exec-1] com.example.bank.filter.JwtFilter        : Loaded UserDetails for identifier: permanent@example.com
+2025-05-13T00:34:52.636+03:00 DEBUG 22032 --- [http-nio-8081-exec-1] com.example.bank.filter.JwtFilter        : Token is valid, setting authentication context
+2025-05-13T00:34:52.636+03:00 DEBUG 22032 --- [http-nio-8081-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/user/me
+2025-05-13T00:37:27.513+03:00 DEBUG 22032 --- [http-nio-8081-exec-4] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/user/phones
+2025-05-13T00:37:27.514+03:00 DEBUG 22032 --- [http-nio-8081-exec-4] com.example.bank.filter.JwtFilter        : Validating token for path: /api/v1/user/phones
+2025-05-13T00:37:27.516+03:00 DEBUG 22032 --- [http-nio-8081-exec-4] com.example.bank.filter.JwtFilter        : Extracted identifier from token: permanent@example.com
+2025-05-13T00:37:27.520+03:00 DEBUG 22032 --- [http-nio-8081-exec-4] com.example.bank.filter.JwtFilter        : Loaded UserDetails for identifier: permanent@example.com
+2025-05-13T00:37:27.532+03:00 DEBUG 22032 --- [http-nio-8081-exec-4] com.example.bank.filter.JwtFilter        : Token is valid, setting authentication context
+2025-05-13T00:37:27.533+03:00 DEBUG 22032 --- [http-nio-8081-exec-4] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/user/phones
+2025-05-13T00:37:59.594+03:00 DEBUG 22032 --- [http-nio-8081-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/user/me
+2025-05-13T00:37:59.595+03:00 DEBUG 22032 --- [http-nio-8081-exec-6] com.example.bank.filter.JwtFilter        : Validating token for path: /api/v1/user/me
+2025-05-13T00:37:59.595+03:00 DEBUG 22032 --- [http-nio-8081-exec-6] com.example.bank.filter.JwtFilter        : Extracted identifier from token: permanent@example.com
+2025-05-13T00:37:59.599+03:00 DEBUG 22032 --- [http-nio-8081-exec-6] com.example.bank.filter.JwtFilter        : Loaded UserDetails for identifier: permanent@example.com
+2025-05-13T00:37:59.613+03:00 DEBUG 22032 --- [http-nio-8081-exec-6] com.example.bank.filter.JwtFilter        : Token is valid, setting authentication context
+2025-05-13T00:37:59.614+03:00 DEBUG 22032 --- [http-nio-8081-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/user/me
+2025-05-13T00:38:08.311+03:00 DEBUG 22032 --- [http-nio-8081-exec-10] o.s.security.web.FilterChainProxy        : Securing POST /api/v1/user/phones
+2025-05-13T00:38:08.311+03:00 DEBUG 22032 --- [http-nio-8081-exec-10] com.example.bank.filter.JwtFilter        : Validating token for path: /api/v1/user/phones
+2025-05-13T00:38:08.312+03:00 DEBUG 22032 --- [http-nio-8081-exec-10] com.example.bank.filter.JwtFilter        : Extracted identifier from token: permanent@example.com
+2025-05-13T00:38:08.317+03:00 DEBUG 22032 --- [http-nio-8081-exec-10] com.example.bank.filter.JwtFilter        : Loaded UserDetails for identifier: permanent@example.com
+2025-05-13T00:38:08.330+03:00 DEBUG 22032 --- [http-nio-8081-exec-10] com.example.bank.filter.JwtFilter        : Token is valid, setting authentication context
+2025-05-13T00:38:08.331+03:00 DEBUG 22032 --- [http-nio-8081-exec-10] o.s.security.web.FilterChainProxy        : Secured POST /api/v1/user/phones
+2025-05-13T00:38:18.389+03:00 DEBUG 22032 --- [http-nio-8081-exec-7] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/user/me
+2025-05-13T00:38:18.390+03:00 DEBUG 22032 --- [http-nio-8081-exec-7] com.example.bank.filter.JwtFilter        : Validating token for path: /api/v1/user/me
+2025-05-13T00:38:18.391+03:00 DEBUG 22032 --- [http-nio-8081-exec-7] com.example.bank.filter.JwtFilter        : Extracted identifier from token: permanent@example.com
+2025-05-13T00:38:18.396+03:00 DEBUG 22032 --- [http-nio-8081-exec-7] com.example.bank.filter.JwtFilter        : Loaded UserDetails for identifier: permanent@example.com
+2025-05-13T00:38:18.410+03:00 DEBUG 22032 --- [http-nio-8081-exec-7] com.example.bank.filter.JwtFilter        : Token is valid, setting authentication context
+2025-05-13T00:38:18.410+03:00 DEBUG 22032 --- [http-nio-8081-exec-7] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/user/me
+2025-05-13T00:43:34.196+03:00 DEBUG 22032 --- [http-nio-8081-exec-8] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/user/me
+2025-05-13T00:43:34.199+03:00 DEBUG 22032 --- [http-nio-8081-exec-8] com.example.bank.filter.JwtFilter        : Validating token for path: /api/v1/user/me
+2025-05-13T00:43:34.199+03:00 DEBUG 22032 --- [http-nio-8081-exec-8] com.example.bank.filter.JwtFilter        : Extracted identifier from token: permanent@example.com
+2025-05-13T00:43:34.206+03:00 DEBUG 22032 --- [http-nio-8081-exec-8] com.example.bank.filter.JwtFilter        : Loaded UserDetails for identifier: permanent@example.com
+2025-05-13T00:43:34.218+03:00 DEBUG 22032 --- [http-nio-8081-exec-8] com.example.bank.filter.JwtFilter        : Token is valid, setting authentication context
+2025-05-13T00:43:34.219+03:00 DEBUG 22032 --- [http-nio-8081-exec-8] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/user/me
+2025-05-13T00:44:42.768+03:00 DEBUG 22032 --- [http-nio-8081-exec-3] o.s.security.web.FilterChainProxy        : Securing PUT /api/v1/user/emails/2
+2025-05-13T00:44:42.769+03:00 DEBUG 22032 --- [http-nio-8081-exec-3] com.example.bank.filter.JwtFilter        : Validating token for path: /api/v1/user/emails/2
+2025-05-13T00:44:42.770+03:00 DEBUG 22032 --- [http-nio-8081-exec-3] com.example.bank.filter.JwtFilter        : Extracted identifier from token: permanent@example.com
+2025-05-13T00:44:42.774+03:00 DEBUG 22032 --- [http-nio-8081-exec-3] com.example.bank.filter.JwtFilter        : Loaded UserDetails for identifier: permanent@example.com
+2025-05-13T00:44:42.787+03:00 DEBUG 22032 --- [http-nio-8081-exec-3] com.example.bank.filter.JwtFilter        : Token is valid, setting authentication context
+2025-05-13T00:44:42.787+03:00 DEBUG 22032 --- [http-nio-8081-exec-3] o.s.security.web.FilterChainProxy        : Secured PUT /api/v1/user/emails/2
+2025-05-13T00:44:46.409+03:00 DEBUG 22032 --- [http-nio-8081-exec-1] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/user/me
+2025-05-13T00:44:46.409+03:00 DEBUG 22032 --- [http-nio-8081-exec-1] com.example.bank.filter.JwtFilter        : Validating token for path: /api/v1/user/me
+2025-05-13T00:44:46.410+03:00 DEBUG 22032 --- [http-nio-8081-exec-1] com.example.bank.filter.JwtFilter        : Extracted identifier from token: permanent@example.com
+2025-05-13T00:44:46.417+03:00 DEBUG 22032 --- [http-nio-8081-exec-1] com.example.bank.filter.JwtFilter        : Loaded UserDetails for identifier: permanent@example.com
+2025-05-13T00:44:46.431+03:00 DEBUG 22032 --- [http-nio-8081-exec-1] com.example.bank.filter.JwtFilter        : Token is valid, setting authentication context
+2025-05-13T00:44:46.432+03:00 DEBUG 22032 --- [http-nio-8081-exec-1] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/user/me
+2025-05-13T00:45:57.377+03:00 DEBUG 22032 --- [http-nio-8081-exec-4] o.s.security.web.FilterChainProxy        : Securing DELETE /api/v1/user/emails/2
+2025-05-13T00:45:57.377+03:00 DEBUG 22032 --- [http-nio-8081-exec-4] com.example.bank.filter.JwtFilter        : Validating token for path: /api/v1/user/emails/2
+2025-05-13T00:45:57.378+03:00 DEBUG 22032 --- [http-nio-8081-exec-4] com.example.bank.filter.JwtFilter        : Extracted identifier from token: permanent@example.com
+2025-05-13T00:45:57.383+03:00 DEBUG 22032 --- [http-nio-8081-exec-4] com.example.bank.filter.JwtFilter        : Loaded UserDetails for identifier: permanent@example.com
+2025-05-13T00:45:57.393+03:00 DEBUG 22032 --- [http-nio-8081-exec-4] com.example.bank.filter.JwtFilter        : Token is valid, setting authentication context
+2025-05-13T00:45:57.394+03:00 DEBUG 22032 --- [http-nio-8081-exec-4] o.s.security.web.FilterChainProxy        : Secured DELETE /api/v1/user/emails/2
+2025-05-13T00:46:08.069+03:00 DEBUG 22032 --- [http-nio-8081-exec-6] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/user/me
+2025-05-13T00:46:08.069+03:00 DEBUG 22032 --- [http-nio-8081-exec-6] com.example.bank.filter.JwtFilter        : Validating token for path: /api/v1/user/me
+2025-05-13T00:46:08.070+03:00 DEBUG 22032 --- [http-nio-8081-exec-6] com.example.bank.filter.JwtFilter        : Extracted identifier from token: permanent@example.com
+2025-05-13T00:46:08.074+03:00 DEBUG 22032 --- [http-nio-8081-exec-6] com.example.bank.filter.JwtFilter        : Loaded UserDetails for identifier: permanent@example.com
+2025-05-13T00:46:08.085+03:00 DEBUG 22032 --- [http-nio-8081-exec-6] com.example.bank.filter.JwtFilter        : Token is valid, setting authentication context
+2025-05-13T00:46:08.086+03:00 DEBUG 22032 --- [http-nio-8081-exec-6] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/user/me
+2025-05-13T00:47:45.067+03:00 DEBUG 22032 --- [http-nio-8081-exec-7] o.s.security.web.FilterChainProxy        : Securing PUT /api/v1/user/phones/2
+2025-05-13T00:47:45.068+03:00 DEBUG 22032 --- [http-nio-8081-exec-7] com.example.bank.filter.JwtFilter        : Validating token for path: /api/v1/user/phones/2
+2025-05-13T00:47:45.069+03:00 DEBUG 22032 --- [http-nio-8081-exec-7] com.example.bank.filter.JwtFilter        : Extracted identifier from token: permanent@example.com
+2025-05-13T00:47:45.073+03:00 DEBUG 22032 --- [http-nio-8081-exec-7] com.example.bank.filter.JwtFilter        : Loaded UserDetails for identifier: permanent@example.com
+2025-05-13T00:47:45.085+03:00 DEBUG 22032 --- [http-nio-8081-exec-7] com.example.bank.filter.JwtFilter        : Token is valid, setting authentication context
+2025-05-13T00:47:45.086+03:00 DEBUG 22032 --- [http-nio-8081-exec-7] o.s.security.web.FilterChainProxy        : Secured PUT /api/v1/user/phones/2
+2025-05-13T00:47:59.473+03:00 DEBUG 22032 --- [http-nio-8081-exec-9] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/user/me
+2025-05-13T00:47:59.474+03:00 DEBUG 22032 --- [http-nio-8081-exec-9] com.example.bank.filter.JwtFilter        : Validating token for path: /api/v1/user/me
+2025-05-13T00:47:59.474+03:00 DEBUG 22032 --- [http-nio-8081-exec-9] com.example.bank.filter.JwtFilter        : Extracted identifier from token: permanent@example.com
+2025-05-13T00:47:59.481+03:00 DEBUG 22032 --- [http-nio-8081-exec-9] com.example.bank.filter.JwtFilter        : Loaded UserDetails for identifier: permanent@example.com
+2025-05-13T00:47:59.491+03:00 DEBUG 22032 --- [http-nio-8081-exec-9] com.example.bank.filter.JwtFilter        : Token is valid, setting authentication context
+2025-05-13T00:47:59.492+03:00 DEBUG 22032 --- [http-nio-8081-exec-9] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/user/me
+2025-05-13T00:48:09.342+03:00 DEBUG 22032 --- [http-nio-8081-exec-8] o.s.security.web.FilterChainProxy        : Securing DELETE /api/v1/user/phones/2
+2025-05-13T00:48:09.342+03:00 DEBUG 22032 --- [http-nio-8081-exec-8] com.example.bank.filter.JwtFilter        : Validating token for path: /api/v1/user/phones/2
+2025-05-13T00:48:09.343+03:00 DEBUG 22032 --- [http-nio-8081-exec-8] com.example.bank.filter.JwtFilter        : Extracted identifier from token: permanent@example.com
+2025-05-13T00:48:09.349+03:00 DEBUG 22032 --- [http-nio-8081-exec-8] com.example.bank.filter.JwtFilter        : Loaded UserDetails for identifier: permanent@example.com
+2025-05-13T00:48:09.361+03:00 DEBUG 22032 --- [http-nio-8081-exec-8] com.example.bank.filter.JwtFilter        : Token is valid, setting authentication context
+2025-05-13T00:48:09.361+03:00 DEBUG 22032 --- [http-nio-8081-exec-8] o.s.security.web.FilterChainProxy        : Secured DELETE /api/v1/user/phones/2
+2025-05-13T00:48:17.867+03:00 DEBUG 22032 --- [http-nio-8081-exec-2] o.s.security.web.FilterChainProxy        : Securing GET /api/v1/user/me
+2025-05-13T00:48:17.868+03:00 DEBUG 22032 --- [http-nio-8081-exec-2] com.example.bank.filter.JwtFilter        : Validating token for path: /api/v1/user/me
+2025-05-13T00:48:17.869+03:00 DEBUG 22032 --- [http-nio-8081-exec-2] com.example.bank.filter.JwtFilter        : Extracted identifier from token: permanent@example.com
+2025-05-13T00:48:17.875+03:00 DEBUG 22032 --- [http-nio-8081-exec-2] com.example.bank.filter.JwtFilter        : Loaded UserDetails for identifier: permanent@example.com
+2025-05-13T00:48:17.885+03:00 DEBUG 22032 --- [http-nio-8081-exec-2] com.example.bank.filter.JwtFilter        : Token is valid, setting authentication context
+2025-05-13T00:48:17.886+03:00 DEBUG 22032 --- [http-nio-8081-exec-2] o.s.security.web.FilterChainProxy        : Secured GET /api/v1/user/me

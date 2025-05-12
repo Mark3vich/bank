@@ -1,0 +1,71 @@
+server:
+  port: 8081
+
+spring:
+  data:
+    elasticsearch:
+      uris: http://bank-elasticsearch:9200
+    redis:
+      host: 127.0.0.1      # Имя контейнера из docker-compose
+      port: 6379
+      # password: ваш-пароль # Раскомментировать если есть пароль
+      # database: 0         # Номер базы (по умолчанию 0)
+  
+  datasource:
+    url: jdbc:postgresql://localhost:5432/bank-app
+    password: sede343343
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      username: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        id:
+          new_generator_mappings: true
+        jdbc:
+          lob:
+            non_contextual_creation: true
+
+  cache:
+    type: redis            # Включение кеширования через Redis
+    redis:
+      time-to-live: 600000 # TTL в мс (10 минут)
+    
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+    default-property-inclusion: non_null
+
+jwt:
+  secret: uM8yhN2Zs6B7o5Dn2nrbvYUB1TwPsmFoY5GR9tFVNK1jCLxsxmJ52xLlZm4BMiRdsokiEUwc4B8P9NiA8vkWWpEE0AQ0jQgYUUyg5thwg78W8s93kugS53lb7bRvr77v
+  access-token-expiration: 604800000    # 7 дней (в миллисекундах)
+  refresh-token-expiration: 2592000000  # 30 дней (в миллисекундах)
+
+# Настройка логирования (опционально)
+logging:
+  file:
+    name: 'C:\Users\Александр\Documents\bank\src\main\resources\log\application.log'
+  level:
+    org.mapstruct: DEBUG
+    org.springframework.web.client.RestTemplate: DEBUG
+    org.apache.http.wire: DEBUG
+    com.example.task_management: DEBUG
+    com.example.bank.filter: DEBUG
+    com.example.bank.service.JwtService: DEBUG
+    org.springframework.security: DEBUG
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  api-docs:
+    path: /v3/api-docs
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json    
