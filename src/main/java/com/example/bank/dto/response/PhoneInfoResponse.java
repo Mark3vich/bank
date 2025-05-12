@@ -2,8 +2,6 @@ package com.example.bank.dto.response;
 
 import java.io.Serializable;
 
-import com.example.bank.model.PhoneData;
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,12 +17,4 @@ public class PhoneInfoResponse implements Serializable {
     private Long id;
     private String phone;
     private String formattedPhone;
-    
-    public static PhoneInfoResponse fromPhoneData(PhoneData phoneData) {
-        return PhoneInfoResponse.builder()
-                .id(phoneData.getId())
-                .phone(phoneData.getPhone())
-                .formattedPhone(phoneData.getFormattedPhone())
-                .build();
-    }
 } 

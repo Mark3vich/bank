@@ -1,5 +1,6 @@
 package com.example.bank.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,9 @@ import com.example.bank.dto.request.PhoneRequest;
 import com.example.bank.dto.response.EmailInfoResponse;
 import com.example.bank.dto.response.PhoneInfoResponse;
 import com.example.bank.dto.response.UserInfoResponse;
+import com.example.bank.mapper.EmailMapper;
+import com.example.bank.mapper.PhoneMapper;
+import com.example.bank.mapper.UserMapper;
 import com.example.bank.model.EmailData;
 import com.example.bank.model.PhoneData;
 import com.example.bank.model.User;
@@ -27,14 +31,27 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
-import lombok.AllArgsConstructor;
 
 @RestController
-@AllArgsConstructor
 @RequestMapping("api/v1/user")
 @Tag(name = "User", description = "Эндпоинты для управления данными пользователя")
 public class UserController {
     private final UserService userService;
+    private final UserMapper userMapper;
+    private final EmailMapper emailMapper;
+    private final PhoneMapper phoneMapper;
+
+    @Autowired
+    public UserController(
+            UserService userService,
+            UserMapper userMapper,
+            EmailMapper emailMapper,
+            PhoneMapper phoneMapper) {
+        this.userService = userService;
+        this.userMapper = userMapper;
+        this.emailMapper = emailMapper;
+        this.phoneMapper = phoneMapper;
+    }
 
     @Operation(summary = "Получить информацию о текущем пользователе", 
             description = "Возвращает данные аутентифицированного пользователя", 
@@ -46,7 +63,7 @@ public class UserController {
     @GetMapping("/me")
     public ResponseEntity<UserInfoResponse> getCurrentUser(HttpServletRequest request) {
         User user = userService.getUserFromRequest(request);
-        return ResponseEntity.ok(UserInfoResponse.fromUser(user));
+        return ResponseEntity.ok(userMapper.fromUser(user));
     }
 
     @Operation(summary = "Добавить новый email", description = "Добавляет новый email для текущего пользователя", responses = {
@@ -59,7 +76,7 @@ public class UserController {
             HttpServletRequest request) {
         User user = userService.getUserFromRequest(request);
         EmailData emailData = userService.addEmail(user, emailRequest);
-        return ResponseEntity.ok(EmailInfoResponse.fromEmailData(emailData));
+        return ResponseEntity.ok(emailMapper.fromEmailData(emailData));
     }
 
     @Operation(summary = "Обновить email", description = "Обновляет указанный email пользователя", responses = {
@@ -103,7 +120,7 @@ public class UserController {
             HttpServletRequest request) {
         User user = userService.getUserFromRequest(request);
         PhoneData phoneData = userService.addPhone(user, phoneRequest);
-        return ResponseEntity.ok(PhoneInfoResponse.fromPhoneData(phoneData));
+        return ResponseEntity.ok(phoneMapper.fromPhoneData(phoneData));
     }
 
     @Operation(summary = "Обновить телефон", description = "Обновляет указанный телефон пользователя", responses = {

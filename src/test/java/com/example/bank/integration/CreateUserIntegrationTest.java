@@ -1,6 +1,8 @@
 package com.example.bank.integration;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -62,9 +64,9 @@ public class CreateUserIntegrationTest {
         assertNotNull(savedUser.getId());
         assertEquals("Иван Иванов", savedUser.getName());
         assertEquals(1, savedUser.getEmails().size());
-        assertEquals("ivan@example.com", savedUser.getEmails().get(0).getEmail());
+        assertEquals("ivan@example.com", new ArrayList<>(savedUser.getEmails()).get(0).getEmail());
         assertEquals(1, savedUser.getPhones().size());
-        assertEquals("79123456789", savedUser.getPhones().get(0).getPhone());
+        assertEquals("79123456789", new ArrayList<>(savedUser.getPhones()).get(0).getPhone());
     }
 
     @Test
