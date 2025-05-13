@@ -220,7 +220,7 @@ public class AuthenticationUnitTest {
     }
 
     @Test
-    public void testRefreshToken_UserNotFound_ShouldThrowException() {
+    public void testRefreshToken_UserNotFound_ShouldReturnUnauthorized() {
         // Подготовка
         RefreshTokenRequest refreshRequest = new RefreshTokenRequest();
         refreshRequest.setRefreshToken(testRefreshToken);
@@ -228,9 +228,10 @@ public class AuthenticationUnitTest {
         when(jwtService.extractEmail(anyString())).thenReturn("test@example.com");
         when(userRepository.findByEmailWithTokens(anyString())).thenReturn(Optional.empty());
 
-        // Выполнение и проверка
-        assertThrows(UsernameNotFoundException.class, () -> {
-            authenticationService.refreshToken(refreshRequest);
-        });
+        // Выполнение
+        ResponseEntity<AuthenticationResponse> response = authenticationService.refreshToken(refreshRequest);
+
+        // Проверка
+        assertEquals(HttpStatus.UNAUTHORIZED, response.getStatusCode());
     }
 }

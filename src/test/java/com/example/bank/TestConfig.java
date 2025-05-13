@@ -20,6 +20,11 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.support.NoOpCacheManager;
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.retry.annotation.EnableRetry;
+
+import com.example.bank.repository.TransactionLogRepository;
+
+import jakarta.persistence.EntityManager;
 
 import java.util.Collections;
 import java.util.Set;
@@ -31,6 +36,7 @@ import java.util.Set;
 @EnableJpaRepositories("com.example.bank.repository")
 @EnableTransactionManagement
 @EnableAutoConfiguration
+@EnableRetry
 public class TestConfig {
     
     // Mock the Redis connection factory to avoid actual Redis connection
@@ -93,5 +99,23 @@ public class TestConfig {
     @Primary
     public ApplicationEventPublisher applicationEventPublisher() {
         return Mockito.mock(ApplicationEventPublisher.class);
+    }
+    
+    // Mock authentication manager for tests
+    @Bean
+    @Primary
+    public org.springframework.security.authentication.AuthenticationManager authenticationManager() {
+        return Mockito.mock(org.springframework.security.authentication.AuthenticationManager.class);
+    }
+    
+    // Mock transaction log repository for tests if not already provided by Spring
+    @Bean
+    @Primary
+    public TransactionLogRepository transactionLogRepository(EntityManager entityManager) {
+        // If we need custom implementation, otherwise Spring Data JPA will create it automatically
+        if (entityManager == null) {
+            return Mockito.mock(TransactionLogRepository.class);
+        }
+        return null;
     }
 } 
