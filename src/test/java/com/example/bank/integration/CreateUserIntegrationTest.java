@@ -26,6 +26,7 @@ import com.example.bank.repository.AccountRepository;
 import com.example.bank.repository.UserRepository;
 import com.example.bank.service.AuthenticationService;
 import com.example.bank.service.InterestService;
+import com.example.bank.service.impl.UserEventPublisher;
 
 @DataJpaTest
 @ContextConfiguration(classes = TestConfig.class)
@@ -45,6 +46,9 @@ public class CreateUserIntegrationTest {
     
     @Autowired
     private InterestService interestService;
+    
+    @Autowired
+    private UserEventPublisher userEventPublisher;
     
     @BeforeEach
     public void setUp() {
@@ -226,7 +230,7 @@ public class CreateUserIntegrationTest {
             createdUsers[4] = createTestUser("Дмитрий Козлов", "19.09.1983", "password5", "dmitry.kozlov@example.com", "79005556677", "7500.80");
             createdUsers[5] = createTestUser("Анна Морозова", "30.12.1995", "password6", "anna.morozova@example.com", "79006667788", "1200.35");
             createdUsers[6] = createTestUser("Сергей Новиков", "11.06.1987", "password7", "sergey.novikov@example.com", "79007778899", "8900.60");
-            createdUsers[7] = createTestUser("Татьяна Волкова", "28.04.1991", "password8", "tatiana.volkova@example.com", "79008889900", "4320.15");
+            createdUsers[7] = createTestUser("Анна Волкова", "28.04.1991", "password8", "anna.volkova@example.com", "79008889900", "4320.15");
             createdUsers[8] = createTestUser("Михаил Соколов", "05.08.1989", "password9", "mikhail.sokolov@example.com", "79009990011", "6750.40");
             createdUsers[9] = createTestUser("Ольга Кузнецова", "17.02.1994", "password10", "olga.kuznetsova@example.com", "79000112233", "3200.90");
         } catch (Exception e) {
@@ -286,6 +290,9 @@ public class CreateUserIntegrationTest {
         if (registeredUser.getAccount().getInitialDeposit() == null) {
             interestService.recordInitialDeposit(registeredUser.getAccount());
         }
+        
+        // После сохранения пользователя публикуем событие создания
+        userEventPublisher.publishUserCreated(registeredUser);
         
         return registeredUser;
     }
