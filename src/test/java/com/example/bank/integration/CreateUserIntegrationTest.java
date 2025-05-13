@@ -2,12 +2,10 @@ package com.example.bank.integration;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -210,20 +208,45 @@ public class CreateUserIntegrationTest {
     @Test
     @Rollback(false)
     public void generateTenTestUsers() {
-        // Создаем 10 тестовых пользователей с разными данными
-        createTestUser("Иван Петров", "01.05.1990", "password1", "ivan.petrov@example.com", "79001112233", "1000.50");
-        createTestUser("Мария Сидорова", "15.07.1985", "password2", "maria.sidorova@example.com", "79002223344", "2500.75");
-        createTestUser("Алексей Иванов", "23.11.1988", "password3", "alexey.ivanov@example.com", "79003334455", "3750.25");
-        createTestUser("Елена Смирнова", "07.03.1992", "password4", "elena.smirnova@example.com", "79004445566", "5000.00");
-        createTestUser("Дмитрий Козлов", "19.09.1983", "password5", "dmitry.kozlov@example.com", "79005556677", "7500.80");
-        createTestUser("Анна Морозова", "30.12.1995", "password6", "anna.morozova@example.com", "79006667788", "1200.35");
-        createTestUser("Сергей Новиков", "11.06.1987", "password7", "sergey.novikov@example.com", "79007778899", "8900.60");
-        createTestUser("Татьяна Волкова", "28.04.1991", "password8", "tatiana.volkova@example.com", "79008889900", "4320.15");
-        createTestUser("Михаил Соколов", "05.08.1989", "password9", "mikhail.sokolov@example.com", "79009990011", "6750.40");
-        createTestUser("Ольга Кузнецова", "17.02.1994", "password10", "olga.kuznetsova@example.com", "79000112233", "3200.90");
+        // Очищаем базу данных перед созданием пользователей
+        userRepository.deleteAll();
+        
+        // Выводим количество пользователей до создания
+        System.out.println("Users before creation: " + userRepository.count());
+
+        // Массив с созданными пользователями для отладки
+        User[] createdUsers = new User[10];
+        
+        try {
+            // Создаем 10 тестовых пользователей с разными данными
+            createdUsers[0] = createTestUser("Иван Петров", "01.05.1990", "password1", "ivan.petrov@example.com", "79001112233", "1000.50");
+            createdUsers[1] = createTestUser("Мария Сидорова", "15.07.1985", "password2", "maria.sidorova@example.com", "79002223344", "2500.75");
+            createdUsers[2] = createTestUser("Алексей Иванов", "23.11.1988", "password3", "alexey.ivanov@example.com", "79003334455", "3750.25");
+            createdUsers[3] = createTestUser("Елена Смирнова", "07.03.1992", "password4", "elena.smirnova@example.com", "79004445566", "5000.00");
+            createdUsers[4] = createTestUser("Дмитрий Козлов", "19.09.1983", "password5", "dmitry.kozlov@example.com", "79005556677", "7500.80");
+            createdUsers[5] = createTestUser("Анна Морозова", "30.12.1995", "password6", "anna.morozova@example.com", "79006667788", "1200.35");
+            createdUsers[6] = createTestUser("Сергей Новиков", "11.06.1987", "password7", "sergey.novikov@example.com", "79007778899", "8900.60");
+            createdUsers[7] = createTestUser("Татьяна Волкова", "28.04.1991", "password8", "tatiana.volkova@example.com", "79008889900", "4320.15");
+            createdUsers[8] = createTestUser("Михаил Соколов", "05.08.1989", "password9", "mikhail.sokolov@example.com", "79009990011", "6750.40");
+            createdUsers[9] = createTestUser("Ольга Кузнецова", "17.02.1994", "password10", "olga.kuznetsova@example.com", "79000112233", "3200.90");
+        } catch (Exception e) {
+            System.err.println("Error creating users: " + e.getMessage());
+            e.printStackTrace();
+        }
+        
+        // Выводим количество пользователей после создания
+        long userCount = userRepository.count();
+        System.out.println("Users after creation: " + userCount);
+        
+        // Проверяем ID созданных пользователей (для диагностики)
+        for (int i = 0; i < createdUsers.length; i++) {
+            if (createdUsers[i] != null) {
+                System.out.println("User " + (i+1) + " ID: " + createdUsers[i].getId());
+            }
+        }
         
         // Проверяем, что все пользователи созданы
-        assertEquals(10, userRepository.count());
+        assertEquals(10, userCount);
     }
     
     private User createTestUser(String name, String dateOfBirth, String password, String email, String phone, String balance) {
@@ -233,33 +256,37 @@ public class CreateUserIntegrationTest {
         user.setPassword(password);
         user.setDateOfBirth(dateOfBirth);
         
-        // Сначала сохраняем пользователя
-        User savedUser = userRepository.save(user);
-        
-        // Затем создаем и добавляем email
+        // Создаем и добавляем email
         EmailData emailData = new EmailData();
         emailData.setEmail(email);
-        emailData.setUser(savedUser);
-        savedUser.getEmails().add(emailData);
+        emailData.setUser(user);
+        user.getEmails().add(emailData);
         
         // Добавляем телефон
         PhoneData phoneData = new PhoneData();
         phoneData.setPhone(phone);
-        phoneData.setUser(savedUser);
-        savedUser.getPhones().add(phoneData);
+        phoneData.setUser(user);
+        user.getPhones().add(phoneData);
         
         // Создаем счет
         Account account = new Account();
         account.setBalance(new BigDecimal(balance));
-        account.setUser(savedUser);
-        savedUser.setAccount(account);
+        account.setUser(user);
+        user.setAccount(account);
         
-        // Сохраняем обновленного пользователя
-        User userWithAccount = userRepository.save(savedUser);
+        // Регистрируем пользователя через сервис аутентификации
+        AuthenticationResponse response = authenticationService.register(user);
+        System.out.println("Registered user: " + name + " with token: " + response.getAccessToken().substring(0, 10) + "...");
         
-        // Записываем начальный депозит
-        interestService.recordInitialDeposit(userWithAccount.getAccount());
+        // Получаем сохраненного пользователя по email для возврата
+        User registeredUser = userRepository.findByEmailWithTokens(email)
+                .orElseThrow(() -> new RuntimeException("User not found after registration: " + email));
+                
+        // Записываем начальный депозит если еще не записан
+        if (registeredUser.getAccount().getInitialDeposit() == null) {
+            interestService.recordInitialDeposit(registeredUser.getAccount());
+        }
         
-        return userWithAccount;
+        return registeredUser;
     }
 }

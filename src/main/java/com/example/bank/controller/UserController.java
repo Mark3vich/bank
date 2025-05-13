@@ -109,7 +109,6 @@ public class UserController {
         return ResponseEntity.ok().build();
     }
 
-    // Phone operations
     @Operation(summary = "Добавить новый телефон", description = "Добавляет новый телефон для текущего пользователя", responses = {
             @ApiResponse(responseCode = "200", description = "Телефон успешно добавлен", content = @Content(schema = @Schema(implementation = PhoneInfoResponse.class))),
             @ApiResponse(responseCode = "400", description = "Телефон уже занят или неверный формат", content = @Content),
