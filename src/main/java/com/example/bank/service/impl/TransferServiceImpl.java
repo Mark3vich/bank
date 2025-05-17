@@ -20,9 +20,9 @@ import com.example.bank.service.JwtService;
 import com.example.bank.service.TransactionLogService;
 import com.example.bank.service.TransferService;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import jakarta.servlet.http.HttpServletRequest;
 
 @Service
 @RequiredArgsConstructor
@@ -34,6 +34,7 @@ public class TransferServiceImpl implements TransferService {
 
     @Retryable(retryFor = ObjectOptimisticLockingFailureException.class, maxAttempts = 3)
     @Transactional
+    @Override
     public void transferMoney(TransferRequest request, HttpServletRequest httpRequest) {
         // Извлекаем токен из заголовков запроса
         String authHeader = httpRequest.getHeader("Authorization");

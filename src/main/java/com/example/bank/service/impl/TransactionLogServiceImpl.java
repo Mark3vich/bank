@@ -3,10 +3,9 @@ package com.example.bank.service.impl;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.bank.model.TransactionLog;
 import com.example.bank.repository.TransactionLogRepository;
@@ -21,6 +20,7 @@ public class TransactionLogServiceImpl implements TransactionLogService {
     private final TransactionLogRepository transactionLogRepository;
 
     @Transactional(propagation = Propagation.REQUIRES_NEW)
+    @Override
     public void logTransfer(Long senderId, Long recipientId, BigDecimal amount, String description) {
         TransactionLog log = new TransactionLog();
         log.setSenderId(senderId);

@@ -1,6 +1,5 @@
 package com.example.bank.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,7 +40,6 @@ public class UserController {
     private final EmailMapper emailMapper;
     private final PhoneMapper phoneMapper;
 
-    @Autowired
     public UserController(
             UserService userService,
             UserMapper userMapper,

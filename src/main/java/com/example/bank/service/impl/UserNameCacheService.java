@@ -35,7 +35,19 @@ public class UserNameCacheService {
             
             // Проверяем доступность Redis
             try {
-                redisTemplate.getConnectionFactory().getConnection().ping();
+                var connectionFactory = redisTemplate.getConnectionFactory();
+                if (connectionFactory != null) {
+                    var connection = connectionFactory.getConnection();
+                    if (connection != null) {
+                        connection.ping();
+                    } else {
+                        log.warn("Redis connection is null. Cache initialization skipped.");
+                        return;
+                    }
+                } else {
+                    log.warn("Redis connection factory is null. Cache initialization skipped.");
+                    return;
+                }
             } catch (Exception e) {
                 log.warn("Redis is not available. Cache initialization skipped. Error: {}", e.getMessage());
                 return;
@@ -66,7 +78,19 @@ public class UserNameCacheService {
         try {
             // Проверяем доступность Redis
             try {
-                redisTemplate.getConnectionFactory().getConnection().ping();
+                var connectionFactory = redisTemplate.getConnectionFactory();
+                 if (connectionFactory != null) {
+                    var connection = connectionFactory.getConnection();
+                    if (connection != null) {
+                        connection.ping();
+                    } else {
+                        log.warn("Redis connection is null. User {} not cached. Error: {}", user.getName(), "Connection is null");
+                        return;
+                    }
+                } else {
+                    log.warn("Redis connection factory is null. User {} not cached. Error: {}", user.getName(), "Connection factory is null");
+                    return;
+                }
             } catch (Exception e) {
                 log.warn("Redis is not available. User {} not cached. Error: {}", user.getName(), e.getMessage());
                 return;
@@ -97,7 +121,19 @@ public class UserNameCacheService {
             
             // Проверяем доступность Redis
             try {
-                redisTemplate.getConnectionFactory().getConnection().ping();
+                var connectionFactory = redisTemplate.getConnectionFactory();
+                 if (connectionFactory != null) {
+                    var connection = connectionFactory.getConnection();
+                    if (connection != null) {
+                        connection.ping();
+                    } else {
+                         log.warn("Redis connection is null. Returning empty results for prefix: {}. Error: {}", prefix, "Connection is null");
+                        return Collections.emptySet();
+                    }
+                } else {
+                    log.warn("Redis connection factory is null. Returning empty results for prefix: {}. Error: {}", prefix, "Connection factory is null");
+                    return Collections.emptySet();
+                }
             } catch (Exception e) {
                 log.warn("Redis is not available. Returning empty results for prefix: {}. Error: {}", prefix, e.getMessage());
                 return Collections.emptySet();
@@ -134,7 +170,19 @@ public class UserNameCacheService {
         try {
             // Проверяем доступность Redis
             try {
-                redisTemplate.getConnectionFactory().getConnection().ping();
+                var connectionFactory = redisTemplate.getConnectionFactory();
+                 if (connectionFactory != null) {
+                    var connection = connectionFactory.getConnection();
+                    if (connection != null) {
+                        connection.ping();
+                    } else {
+                        log.warn("Redis connection is null. Returning empty results for user IDs. Error: {}", "Connection is null");
+                        return Collections.emptyList();
+                    }
+                } else {
+                    log.warn("Redis connection factory is null. Returning empty results for user IDs. Error: {}", "Connection factory is null");
+                    return Collections.emptyList();
+                }
             } catch (Exception e) {
                 log.warn("Redis is not available. Returning empty results for user IDs. Error: {}", e.getMessage());
                 return Collections.emptyList();
