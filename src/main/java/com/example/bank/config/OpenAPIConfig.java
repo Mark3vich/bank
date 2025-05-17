@@ -15,9 +15,9 @@ public class OpenAPIConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("Task Management API")
+                        .title("Bank API")
                         .version("1.0")
-                        .description("API for Task Management System"))
+                        .description("API for Bank System"))
                 .addSecurityItem(new SecurityRequirement().addList("BearerAuth"))
                 .components(new Components()
                         .addSecuritySchemes("BearerAuth",
