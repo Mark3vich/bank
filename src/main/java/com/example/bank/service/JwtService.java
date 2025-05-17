@@ -1,5 +1,6 @@
 package com.example.bank.service;
 
+import java.time.Instant;
 import java.util.Date;
 import java.util.function.Function;
 
@@ -20,7 +21,6 @@ import com.example.bank.repository.UserRepository;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtParserBuilder;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 
@@ -72,7 +72,7 @@ public class JwtService {
         } catch (Exception e) {
             logError("Refresh token validation error: " + e.getMessage());
             return false;
-        } 
+        }
     }
 
     @Transactional
@@ -151,10 +151,10 @@ public class JwtService {
                 : user.getEmails().iterator().next().getEmail();
 
         return Jwts.builder()
-                .setSubject(identifier)
-                .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + expiryTime))
-                .signWith(getSigningKey(), SignatureAlgorithm.HS256)
+                .subject(identifier)
+                .issuedAt(Date.from(Instant.now()))
+                .expiration(Date.from(Instant.now().plusMillis(expiryTime)))
+                .signWith(getSigningKey(), Jwts.SIG.HS256)
                 .compact();
     }
 

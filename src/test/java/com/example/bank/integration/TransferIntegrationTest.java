@@ -1,10 +1,10 @@
 package com.example.bank.integration;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.math.BigDecimal;
 import java.util.UUID;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,6 @@ import org.springframework.test.context.TestPropertySource;
 
 import com.example.bank.TestConfig;
 import com.example.bank.dto.request.TransferRequest;
-import com.example.bank.exception.AccountNotFoundException;
 import com.example.bank.exception.InsufficientFundsException;
 import com.example.bank.exception.SelfTransferException;
 import com.example.bank.model.Account;
@@ -28,7 +27,6 @@ import com.example.bank.model.PhoneData;
 import com.example.bank.model.User;
 import com.example.bank.repository.AccountRepository;
 import com.example.bank.repository.UserRepository;
-import com.example.bank.service.AuthenticationService;
 import com.example.bank.service.JwtService;
 import com.example.bank.service.TransferService;
 import com.example.bank.service.impl.TransactionLogServiceImpl;
@@ -59,9 +57,6 @@ public class TransferIntegrationTest {
     
     @Autowired
     private JwtService jwtService;
-    
-    @Autowired
-    private AuthenticationService authenticationService;
     
     @Autowired
     private UserEventPublisher userEventPublisher;

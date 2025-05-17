@@ -27,7 +27,6 @@ import com.example.bank.repository.TransactionLogRepository;
 import jakarta.persistence.EntityManager;
 
 import java.util.Collections;
-import java.util.Set;
 
 @Configuration
 @TestConfiguration

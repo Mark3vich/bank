@@ -40,7 +40,7 @@ public class Account implements Serializable {
     @Column(precision = 19, scale = 2)
     @DecimalMin(value = "0.00", message = "Balance cannot be negative")
     private BigDecimal balance = BigDecimal.ZERO;
-    
+
     @Column(name = "initial_deposit", precision = 19, scale = 2)
     private BigDecimal initialDeposit;
 
