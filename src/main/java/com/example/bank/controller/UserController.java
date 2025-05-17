@@ -63,7 +63,7 @@ public class UserController {
     @GetMapping("/me")
     public ResponseEntity<UserInfoResponse> getCurrentUser(HttpServletRequest request) {
         User user = userService.getUserFromRequest(request);
-        return ResponseEntity.ok(userMapper.fromUser(user));
+        return ResponseEntity.ok(userMapper.toDto(user));
     }
 
     @Operation(summary = "Добавить новый email", description = "Добавляет новый email для текущего пользователя", responses = {
@@ -76,7 +76,7 @@ public class UserController {
             HttpServletRequest request) {
         User user = userService.getUserFromRequest(request);
         EmailData emailData = userService.addEmail(user, emailRequest);
-        return ResponseEntity.ok(emailMapper.fromEmailData(emailData));
+        return ResponseEntity.ok(emailMapper.toDto(emailData));
     }
 
     @Operation(summary = "Обновить email", description = "Обновляет указанный email пользователя", responses = {
@@ -119,7 +119,7 @@ public class UserController {
             HttpServletRequest request) {
         User user = userService.getUserFromRequest(request);
         PhoneData phoneData = userService.addPhone(user, phoneRequest);
-        return ResponseEntity.ok(phoneMapper.fromPhoneData(phoneData));
+        return ResponseEntity.ok(phoneMapper.toDto(phoneData));
     }
 
     @Operation(summary = "Обновить телефон", description = "Обновляет указанный телефон пользователя", responses = {
