@@ -12,7 +12,6 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 
 @Configuration
 public class WebConfig {
-
     /**
      * Основной ObjectMapper для HTTP запросов/ответов
      */
@@ -25,4 +24,4 @@ public class WebConfig {
                 .serializationInclusion(JsonInclude.Include.NON_NULL)
                 .build();
     }
-} 
+}

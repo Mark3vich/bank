@@ -14,18 +14,18 @@ public class OpenAPIConfig {
     @Bean
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
-            .info(new Info()
-                .title("Task Management API")
-                .version("1.0")
-                .description("API for Task Management System"))
-            .addSecurityItem(new SecurityRequirement().addList("BearerAuth"))
-            .components(new Components()
-                .addSecuritySchemes("BearerAuth", 
-                    new SecurityScheme()
-                        .name("Authorization")
-                        .type(SecurityScheme.Type.HTTP)
-                        .scheme("bearer")
-                        .bearerFormat("JWT")
-                        .in(SecurityScheme.In.HEADER)));
+                .info(new Info()
+                        .title("Task Management API")
+                        .version("1.0")
+                        .description("API for Task Management System"))
+                .addSecurityItem(new SecurityRequirement().addList("BearerAuth"))
+                .components(new Components()
+                        .addSecuritySchemes("BearerAuth",
+                                new SecurityScheme()
+                                        .name("Authorization")
+                                        .type(SecurityScheme.Type.HTTP)
+                                        .scheme("bearer")
+                                        .bearerFormat("JWT")
+                                        .in(SecurityScheme.In.HEADER)));
     }
 }

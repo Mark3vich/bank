@@ -14,7 +14,7 @@ import lombok.ToString;
 @Schema(description = "DTO для передачи токенов аутентификации (access token и refresh token)")
 public class AuthenticationResponse implements Serializable {
     private static final long serialVersionUID = 1L;
-    
+
     @Schema(description = "Токен доступа (access token)", example = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.3Hgk5W_2UtKsI7dpuFjaYmAiRfcsh5y2IYrQINzq4_w", required = true)
     private final String accessToken;
 
@@ -23,7 +23,7 @@ public class AuthenticationResponse implements Serializable {
 
     @JsonCreator
     public AuthenticationResponse(
-            @JsonProperty("accessToken") String accessToken, 
+            @JsonProperty("accessToken") String accessToken,
             @JsonProperty("refreshToken") String refreshToken) {
         this.accessToken = accessToken;
         this.refreshToken = refreshToken;

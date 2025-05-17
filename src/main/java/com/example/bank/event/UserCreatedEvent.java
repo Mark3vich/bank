@@ -8,11 +8,11 @@ import lombok.Getter;
  * Событие создания пользователя
  */
 public class UserCreatedEvent {
-    
+
     @Getter
     private final User user;
-    
+
     public UserCreatedEvent(User user) {
         this.user = user;
     }
-} 
+}

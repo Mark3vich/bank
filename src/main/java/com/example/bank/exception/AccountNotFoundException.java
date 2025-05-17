@@ -5,4 +5,3 @@ public class AccountNotFoundException extends BusinessException {
         super(message);
     }
 }
-

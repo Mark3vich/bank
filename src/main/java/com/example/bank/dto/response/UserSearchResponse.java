@@ -14,19 +14,19 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Schema(description = "Результат поиска пользователей с пагинацией")
 public class UserSearchResponse {
-    
+
     @Schema(description = "Список найденных пользователей")
     private List<UserDto> users;
-    
+
     @Schema(description = "Общее количество пользователей, удовлетворяющих условиям поиска")
     private long totalElements;
-    
+
     @Schema(description = "Общее количество страниц")
     private int totalPages;
-    
+
     @Schema(description = "Текущая страница")
     private int currentPage;
-    
+
     @Schema(description = "Размер страницы")
     private int pageSize;
-} 
+}

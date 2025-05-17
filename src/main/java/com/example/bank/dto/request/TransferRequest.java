@@ -12,12 +12,12 @@ import lombok.Setter;
 @Getter
 @Setter
 @Data
-@Schema(description="DTO для перевода средств от одного пользователя к другому")
+@Schema(description = "DTO для перевода средств от одного пользователя к другому")
 public class TransferRequest {
     @Schema(description = "Id пользователя, которму нужно перевести деньги", example = "1")
     @NotNull(message = "Recipient ID is required")
     Long recipientId;
-    
+
     @Schema(description = "Сумма перевода", example = "100.0")
     @NotNull(message = "Amount is required")
     @Positive(message = "Amount must be positive")

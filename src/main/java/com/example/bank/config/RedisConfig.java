@@ -23,33 +23,33 @@ import com.fasterxml.jackson.databind.jsontype.impl.LaissezFaireSubTypeValidator
 @EnableCaching
 @ConditionalOnProperty(name = "spring.redis.enabled", havingValue = "true", matchIfMissing = true) //
 public class RedisConfig {
+        /**
+         * Отдельный ObjectMapper для Redis, не влияющий на HTTP сериализацию
+         */
+        @Bean(name = "redisObjectMapper")
+        public ObjectMapper redisObjectMapper() {
+                ObjectMapper mapper = new ObjectMapper();
+                mapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
+                mapper.activateDefaultTyping(LaissezFaireSubTypeValidator.instance,
+                                ObjectMapper.DefaultTyping.NON_FINAL, JsonTypeInfo.As.PROPERTY);
+                return mapper;
+        }
 
-    /**
-     * Отдельный ObjectMapper для Redis, не влияющий на HTTP сериализацию
-     */
-    @Bean(name = "redisObjectMapper")
-    public ObjectMapper redisObjectMapper() {
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
-        mapper.activateDefaultTyping(LaissezFaireSubTypeValidator.instance, 
-                ObjectMapper.DefaultTyping.NON_FINAL, JsonTypeInfo.As.PROPERTY);
-        return mapper;
-    }
+        @Bean
+        public RedisCacheManager cacheManager(RedisConnectionFactory connectionFactory,
+                        @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection") ObjectMapper redisObjectMapper) {
+                RedisCacheConfiguration cacheConfiguration = RedisCacheConfiguration.defaultCacheConfig()
+                                .entryTtl(Duration.ofMinutes(30))
+                                .disableCachingNullValues()
+                                .serializeKeysWith(
+                                                RedisSerializationContext.SerializationPair
+                                                                .fromSerializer(new StringRedisSerializer()))
+                                .serializeValuesWith(RedisSerializationContext.SerializationPair
+                                                .fromSerializer(new GenericJackson2JsonRedisSerializer(
+                                                                redisObjectMapper)));
 
-    @Bean
-    public RedisCacheManager cacheManager(RedisConnectionFactory connectionFactory, 
-                                          @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection") 
-                                          ObjectMapper redisObjectMapper) {
-        RedisCacheConfiguration cacheConfiguration = RedisCacheConfiguration.defaultCacheConfig()
-                .entryTtl(Duration.ofMinutes(30))
-                .disableCachingNullValues()
-                .serializeKeysWith(
-                        RedisSerializationContext.SerializationPair.fromSerializer(new StringRedisSerializer()))
-                .serializeValuesWith(RedisSerializationContext.SerializationPair
-                        .fromSerializer(new GenericJackson2JsonRedisSerializer(redisObjectMapper)));
-
-        return RedisCacheManager.builder(connectionFactory)
-                .cacheDefaults(cacheConfiguration)
-                .build();
-    }
-} 
+                return RedisCacheManager.builder(connectionFactory)
+                                .cacheDefaults(cacheConfiguration)
+                                .build();
+        }
+}
