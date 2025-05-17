@@ -3,8 +3,6 @@ server:
 
 spring:
   data:
-    elasticsearch:
-      uris: http://bank-elasticsearch:9200
     redis:
       host: 127.0.0.1      # Имя контейнера из docker-compose
       port: 6379
